@@ -1,7 +1,7 @@
--- Drop table if exists (for fresh load)
+-- Drop table if exists
 DROP TABLE IF EXISTS raw_export_data;
 
--- Create table with improved structure
+-- Create table
 CREATE TABLE raw_export_data (
     fiscal_year VARCHAR(10),
     unique_id VARCHAR(50),
@@ -10,8 +10,8 @@ CREATE TABLE raw_export_data (
     decision_date DATE,
     effective_date DATE,
     expiration_date DATE,
-    brokered BOOLEAN,
-    deal_cancelled BOOLEAN,
+    brokered BIT,
+    deal_cancelled BIT,
     country VARCHAR(100),
     program VARCHAR(100),
     policy_type VARCHAR(100),
@@ -36,8 +36,8 @@ CREATE TABLE raw_export_data (
     woman_owned_amount DECIMAL(18,2),
     minority_owned_amount DECIMAL(18,2),
     interest_rate DECIMAL(5,2),
-    multiyear_extension BOOLEAN
+    multiyear_extension BIT
 );
 
--- Verify table
+-- Verify
 SELECT * FROM raw_export_data;
