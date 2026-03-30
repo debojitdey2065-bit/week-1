@@ -1,0 +1,36 @@
+Project Report: SQL Database & Business Insights (Week 2)
+Project: Retail Sales & Export Data Analysis
+Prepared by: Komal Shendkar
+Status: Phase 2 (Database & SQL) Complete ✅
+1. Objective
+The goal for Week 2 was to transition from raw Excel data into a structured MySQL database and extract key business insights using SQL aggregate functions.
+2. Step-by-Step Execution
+Step A: Data Preparation & Cleaning
+Challenge: The original dataset was too large for standard import wizards to handle without crashing.
+Solution: Created a "Master Sample" of 999 rows. This is a statistically significant sample that allows for fast processing while maintaining data integrity.
+Format: Saved as sample_export_data.csv for universal compatibility.
+Step B: Database Schema Design
+We moved away from a single "flat" table to a more professional Star Schema organization:
+raw_export_data: The landing table for all imported CSV data.
+dim_products: A dedicated table for product codes and descriptions.
+dim_exporters: A dedicated table for exporter names and locations.
+fact_deals: The core table containing deal IDs, decision status, and financial amounts.
+Step C: Data Import Process
+Created a new schema: new_schema.
+Pre-defined the table structure using TEXT data types to ensure 0% data loss during upload.
+Used the Table Data Import Wizard to append the 999 rows into the database.
+Step D: SQL Analysis & Business Logic
+Used SQL commands to clean the currency strings and convert them into numbers for calculation.
+Aggregate Functions Used: SUM(), COUNT(), AVG().
+Logic: Filtered by Decision = 'Approved' to find actual revenue.
+Organization: Used GROUP BY to compare performance across different categories.
+3. Key Business Insights Discovered
+Based on the SQL analysis of the sample data, we successfully calculated:
+Total Revenue: Total dollar amount of all approved deals.
+Deal Volume: The total count of processed applications.
+Average Deal Value: The mean financial size of approved exports.
+4. Technical Deliverables (On GitHub)
+The following files have been pushed to the repository:
+database_analysis.sql: Contains the full script to rebuild the database and run the analysis.
+sample_export_data.csv: The cleaned dataset for testing.
+README.md: Documentation on how to run the project.
